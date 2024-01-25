@@ -1,0 +1,500 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 20 14.3% 4.1%;
+    --card: 0 0% 100%;
+    --card-foreground: 20 14.3% 4.1%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 20 14.3% 4.1%;
+    --primary: 24.6 95% 53.1%;
+    --primary-foreground: 60 9.1% 97.8%;
+    --secondary: 60 4.8% 95.9%;
+    --secondary-foreground: 24 9.8% 10%;
+    --muted: 60 4.8% 95.9%;
+    --muted-foreground: 25 5.3% 44.7%;
+    --accent: 60 4.8% 95.9%;
+    --accent-foreground: 24 9.8% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 60 9.1% 97.8%;
+    --border: 20 5.9% 90%;
+    --input: 20 5.9% 90%;
+    --ring: 24.6 95% 53.1%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 20 14.3% 4.1%;
+    --foreground: 60 9.1% 97.8%;
+    --card: 20 14.3% 4.1%;
+    --card-foreground: 60 9.1% 97.8%;
+    --popover: 20 14.3% 4.1%;
+    --popover-foreground: 60 9.1% 97.8%;
+    --primary: 20.5 90.2% 48.2%;
+    --primary-foreground: 60 9.1% 97.8%;
+    --secondary: 12 6.5% 15.1%;
+    --secondary-foreground: 60 9.1% 97.8%;
+    --muted: 12 6.5% 15.1%;
+    --muted-foreground: 24 5.4% 63.9%;
+    --accent: 12 6.5% 15.1%;
+    --accent-foreground: 60 9.1% 97.8%;
+    --destructive: 0 72.2% 50.6%;
+    --destructive-foreground: 60 9.1% 97.8%;
+    --border: 12 6.5% 15.1%;
+    --input: 12 6.5% 15.1%;
+    --ring: 20.5 90.2% 48.2%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+body {
+  background-image: url(../public/images/noise.png);
+}
+
+.triangle {
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-bottom: 12px solid #FF4E00; 
+  rotate: 180deg;
+  margin-bottom: 10px;
+}
+
+.triangle_container{
+  height: 50px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;  
+}
+
+.triangle_link {
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-bottom: 12px solid #FF4E00; 
+  position: absolute;
+  rotate: 90deg;
+  right: -15px;
+  top: 0;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.triangle_container:hover .triangle_link{
+  opacity: 1;
+  transform: translateY(-10px);
+}
+
+.workBackground {
+  background-image: url(../public/images/noise.png);
+
+}
+
+.headerImage {
+  background-image: url("https://cdn.merixstudio.com/media/contact/header_images/2019/07/18/15/25/Contact_Header_2993_1.jpg");
+  background-position: 30% 30%;
+}
+
+.headerImage::before{
+  content: '';
+  height: 400px;
+  width: 100%;
+  /* background-color: red; */
+  background-image: url('/public/images/noise.png');
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* ///////////////////////////////////// */
+
+.contact-card{
+  width: 100%;
+  height: 100%;
+  /* background-color: red; */
+  position: relative;
+}
+
+.contact-card::before{
+  content: '';
+  height: 100%;
+  width: 1px;
+  border: 1px solid rgb(22, 22, 22);
+  position: absolute;
+  left: 0;
+}
+
+
+/* ///////////////////////////////////////////// */
+
+/* wave  */
+.wave-text{
+  width: fit-content;
+  height: 100%;
+  position : relative;
+  top: 0;
+  padding-bottom: 10px;
+}
+
+.wave-text::before{
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-image: url("/images/wave.svg");
+  background-position: 50%;
+  background-size: contain;
+  background-repeat: repeat-x;
+}
+
+
+/* /////////////////////////////////////////////////////////////////////////// */
+
+.boxed-input {
+  position: relative;
+  display: block;
+  min-height: 71px;
+  padding-top: 16px;
+}
+.boxed-input__wrapper {
+  position: relative;
+  display: block;
+}
+.boxed-input__box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  height: 55px;
+  transition: transform 0.25s ease-in-out, opacity 0.25s ease;
+  transform: translate(0, 0);
+  pointer-events: none;
+}
+.boxed-input__side {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  background: #e6e6e6;
+  transform-origin: 0 0;
+}
+.boxed-input__side--top,
+.boxed-input__side--bottom {
+  height: 16px;
+  background: #d9d9d9;
+  transform: skewX(-45deg);
+  transform-origin: 0 100%;
+}
+.boxed-input__side--rear {
+  top: -16px;
+  right: -16px;
+  left: auto;
+  height: calc(100% + 1px);
+  border-right: 1px solid transparent;
+  background: #ededed;
+}
+.boxed-input__side--bottom {
+  top: auto;
+  bottom: 0;
+  border-right: 1px solid transparent;
+}
+.boxed-input__side--top {
+  top: -16px;
+  border-top: 1px solid transparent;
+  border-left: 1px solid transparent;
+}
+.boxed-input__side--front {
+  border-bottom: 1px solid transparent;
+  border-left: 1px solid transparent;
+}
+.boxed-input__input {
+  position: relative;
+  z-index: 1;
+  display: block;
+  transition: transform 0.25s ease-in-out;
+  transform: translate(0, 0);
+}
+.boxed-input__select {
+  position: absolute;
+  z-index: 11;
+  opacity: 0;
+  height: 55px;
+}
+.boxed-input__errors {
+  overflow: hidden;
+  display: block;
+  min-height: 26px;
+  text-align: right;
+  transition: transform 0.25s ease-in-out;
+  transform: translate(0, 0);
+}
+.boxed-input__error {
+  display: block;
+  margin-top: 5px;
+  padding-right: 2px;
+  color: #dc2e10;
+  font-style: italic;
+  font-size: 14px;
+  font-family: "Pontiac", Arial, Helvetica, sans-serif;
+}
+.boxed-input:not(.boxed-input--static) .boxed-input__input:focus,
+.boxed-input:not(.boxed-input--static)
+  .boxed-input__input:focus
+  ~ .boxed-input__box,
+.boxed-input:not(.boxed-input--static)
+  .boxed-input__input:focus
+  ~ .boxed-input__errors {
+  transform: translate(-16px, 16px);
+}
+.boxed-input:not(.boxed-input--static)
+  .boxed-input__wrapper--focus
+  ~ .boxed-input__errors {
+  transform: translate(-16px, 16px);
+}
+.boxed-input--static
+  .boxed-input__input:focus
+  + .boxed-input__box
+  .boxed-input__side--front:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  content: "";
+  opacity: 0.05;
+  background: #fff;
+  pointer-events: none;
+}
+.boxed-input--textarea .boxed-input__input,
+.boxed-input--textarea .boxed-input__box {
+  height: 100%;
+  min-height: 120px;
+}
+.boxed-input--select .boxed-input__box {
+  position: absolute;
+  height: 100%;
+}
+.boxed-input--error .boxed-input__side {
+  border-color: #dc2e10 !important;
+}
+
+
+/* ////////////////////////////////////////////////////////////////// */
+
+/* Project Name: Landing Page Using SwiperJS
+Youtube: https://youtube.com/@devRasen
+Copyright: ©MdRasen */
+
+/* Google Font */
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&family=Roboto:wght@300;400;500;900&display=swap");
+
+/* General CSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+}
+
+/* Custom CSS */
+.container {
+  width: 100%;
+  min-height: 100vh;
+  column-gap: 40px;
+  padding: 60px 6%;
+}
+
+.container .side-info {
+  margin: 20px 0;
+}
+
+.container .side-info span {
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-size: 16px;
+  color: #717171;
+}
+
+.container .side-info h1 {
+  text-transform: capitalize;
+  letter-spacing: 0.8px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
+  font-size: 56px;
+  background-color: #005baa;
+  background-image: linear-gradient(45deg, #005baa, #000000);
+  background-size: 100%;
+  background-repeat: repeat;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+}
+
+.container .side-info hr {
+  display: block;
+  background: #005baa;
+  height: 4px;
+  width: 20%;
+  margin: 18px 0;
+}
+
+.container a {
+  display: inline-block;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #717171;
+  font-weight: 500;
+  background: #fff;
+  border-radius: 50px;
+  border: 2px solid #c2c2c2;
+  padding: 8px 16px;
+  margin-top: 20px;
+  transition: 0.3s ease-in-out;
+}
+
+.container a:hover {
+  border: 2px solid #005baa;
+  color: #005baa;
+}
+
+.container .swiper {
+  width: 100%;
+}
+
+.swiper-pagination-bullet,
+.swiper-pagination-bullet-active {
+  background: #fff;
+}
+
+.swiper-pagination {
+  bottom: 20px !important;
+}
+
+.swiper-slide {
+  width: 300px;
+  height: 450px;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: self-start;
+}
+
+.swiper-slide h2 {
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 1.4;
+  margin-bottom: 10px;
+  padding: 0 0 0 24px;
+  text-transform: uppercase;
+}
+
+.swiper-slide p {
+  color: #dadada;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  padding: 0 24px;
+  font-size: 12px;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.swiper-slide a {
+  margin: 20px 25px 50px !important;
+  padding: 8px 16px !important;
+  font-size: 14px;
+  border: none;
+}
+
+.swiper-slide a:hover {
+  border: none;
+}
+
+.swiper-slide div {
+  display: none;
+  opacity: 0;
+  padding-bottom: 10px;
+}
+
+.swiper-slide-active div {
+  display: block;
+  opacity: 1;
+}
+
+.slide-one {
+  background: linear-gradient(to top, #0f2027, #203a4300, #2c536400),
+    url(https://github.com/MdRasen/Landing-Page-Using-SwiperJS/blob/main/Landing%20Page%20Using%20SwiperJS/assets/car1.jpg?raw=true) no-repeat 50% 50% / cover;
+}
+
+.slide-two {
+  background: linear-gradient(to top, #0f2027, #203a4300, #2c536400),
+    url(https://github.com/MdRasen/Landing-Page-Using-SwiperJS/blob/main/Landing%20Page%20Using%20SwiperJS/assets/car2.jpg?raw=true) no-repeat 50% 50% / cover;
+}
+
+.slide-three {
+  background: linear-gradient(to top, #0f2027, #203a4300, #2c536400),
+    url(https://github.com/MdRasen/Landing-Page-Using-SwiperJS/blob/main/Landing%20Page%20Using%20SwiperJS/assets/car3.jpg?raw=true) no-repeat 50% 50% / cover;
+}
+
+.slide-four {
+  background: linear-gradient(to top, #0f2027, #203a4300, #2c536400),
+    url(https://github.com/MdRasen/Landing-Page-Using-SwiperJS/blob/main/Landing%20Page%20Using%20SwiperJS/assets/car4.jpg?raw=true) no-repeat 50% 50% / cover;
+}
+
+/* Responsive Design */
+@media (min-width: 800px) {
+  .container {
+    display: flex;
+    align-items: center;
+  }
+
+  .container .side-info {
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 500px) {
+  .container .side-info h1 {
+    font-size: 46px;
+  }
+
+  .container .side-info p {
+    font-size: 14px;
+  }
+}
+
+
+
+
+
+
+
+

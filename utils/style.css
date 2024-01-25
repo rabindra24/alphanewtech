@@ -1,0 +1,131 @@
+.boxed-input {
+  position: relative;
+  display: block;
+  min-height: 71px;
+  padding-top: 16px;
+}
+.boxed-input__wrapper {
+  position: relative;
+  display: block;
+}
+.boxed-input__box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  height: 55px;
+  transition: transform 0.25s ease-in-out, opacity 0.25s ease;
+  transform: translate(0, 0);
+  pointer-events: none;
+}
+.boxed-input__side {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  background: #e6e6e6;
+  transform-origin: 0 0;
+}
+.boxed-input__side--top,
+.boxed-input__side--bottom {
+  height: 16px;
+  background: #d9d9d9;
+  transform: skewX(-45deg);
+  transform-origin: 0 100%;
+}
+.boxed-input__side--rear {
+  top: -16px;
+  right: -16px;
+  left: auto;
+  height: calc(100% + 1px);
+  border-right: 1px solid transparent;
+  background: #ededed;
+}
+.boxed-input__side--bottom {
+  top: auto;
+  bottom: 0;
+  border-right: 1px solid transparent;
+}
+.boxed-input__side--top {
+  top: -16px;
+  border-top: 1px solid transparent;
+  border-left: 1px solid transparent;
+}
+.boxed-input__side--front {
+  border-bottom: 1px solid transparent;
+  border-left: 1px solid transparent;
+}
+.boxed-input__input {
+  position: relative;
+  z-index: 1;
+  display: block;
+  transition: transform 0.25s ease-in-out;
+  transform: translate(0, 0);
+}
+.boxed-input__select {
+  position: absolute;
+  z-index: 11;
+  opacity: 0;
+  height: 55px;
+}
+.boxed-input__errors {
+  overflow: hidden;
+  display: block;
+  min-height: 26px;
+  text-align: right;
+  transition: transform 0.25s ease-in-out;
+  transform: translate(0, 0);
+}
+.boxed-input__error {
+  display: block;
+  margin-top: 5px;
+  padding-right: 2px;
+  color: #dc2e10;
+  font-style: italic;
+  font-size: 14px;
+  font-family: "Pontiac", Arial, Helvetica, sans-serif;
+}
+.boxed-input:not(.boxed-input--static) .boxed-input__input:focus,
+.boxed-input:not(.boxed-input--static)
+  .boxed-input__input:focus
+  ~ .boxed-input__box,
+.boxed-input:not(.boxed-input--static)
+  .boxed-input__input:focus
+  ~ .boxed-input__errors {
+  transform: translate(-16px, 16px);
+}
+.boxed-input:not(.boxed-input--static)
+  .boxed-input__wrapper--focus
+  ~ .boxed-input__errors {
+  transform: translate(-16px, 16px);
+}
+.boxed-input--static
+  .boxed-input__input:focus
+  + .boxed-input__box
+  .boxed-input__side--front:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  content: "";
+  opacity: 0.05;
+  background: #fff;
+  pointer-events: none;
+}
+.boxed-input--textarea .boxed-input__input,
+.boxed-input--textarea .boxed-input__box {
+  height: 100%;
+  min-height: 120px;
+}
+.boxed-input--select .boxed-input__box {
+  position: absolute;
+  height: 100%;
+}
+.boxed-input--error .boxed-input__side {
+  border-color: #dc2e10 !important;
+}
