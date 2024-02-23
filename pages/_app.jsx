@@ -5,10 +5,13 @@ import { ThemeProvider } from "next-themes";
 import "./global.css";
 import Link from "next/link";
 import localFont from "next/font/local";
-
+import { NextUIProvider } from "@nextui-org/react";
 import { Fira_Sans } from "next/font/google";
 import { NavigationMenuDemo } from "@/components/Navbar/NavbarDesktop";
 import Footer from "@/components/Footer/Footer";
+import Image from "next/image";
+import NewNavbar from "@/components/Navbar/NewNavbar";
+import Navbar from "@/components/Navbar/MyNavbar";
 
 const myFont = localFont({
   src: [
@@ -38,22 +41,34 @@ const FiraSans = Fira_Sans({
 
 const App = ({ Component, pageProps, router }) => {
   return (
-    <div className={`${FiraSans.className} ${myFont.variable} `}>
-      <ThemeProvider attribute="class" defaultTheme="dark" en>
-        <div className="header w-full absolute  z-10 top-0 flex items-center  justify-between">
-          <div>
-            <Link href={"/"} className={"text-2xl font-bold "}>
-              LOGO
-            </Link>
+    <div className={`${FiraSans.className} ${myFont.variable} w-full`}>
+      <NextUIProvider>
+        <ThemeProvider attribute="class" defaultTheme="dark" en>
+          <div className="header   absolute  z-10 top-0 w-full">
+            <div className="flex items-center border-b border-primary  justify-between sm:w-[90%] mx-auto lg:max-w-[1600px]">
+              <div>
+                <Link href={"/"} className={"text-2xl font-bold "}>
+                  <Image
+                    src="/logo.svg"
+                    width={50}
+                    height={50}
+                    alt="logo"
+                    className="w-12 h-12"
+                  />
+                </Link>
+              </div>
+              <NavigationMenuDemo />
+            <Navbar/>
+            </div>
+            {/* <NewNavbar/> */}
           </div>
-          <NavigationMenuDemo />
-        </div>
 
-        <AnimatePresence mode="wait">
-          <Component key={router.route} {...pageProps} />
-          <Footer />
-        </AnimatePresence>
-      </ThemeProvider>
+          <AnimatePresence mode="wait">
+            <Component key={router.route} {...pageProps} />
+            <Footer />
+          </AnimatePresence>
+        </ThemeProvider>
+      </NextUIProvider>
     </div>
   );
 };

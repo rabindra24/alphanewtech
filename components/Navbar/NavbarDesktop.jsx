@@ -15,15 +15,16 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import { navElements } from "@/constants/contants";
+import { Button } from "../ui/button";
 
 export function NavigationMenuDemo() {
   return (
-    <NavigationMenu className="sm:flex hidden  z-10  ">
+    <NavigationMenu className="md:flex hidden   z-10 ">
       <NavigationMenuList>
         {navElements.map((item, idx) => {
           if (item.title === "services") {
             return (
-              <NavigationMenuItem className="">
+              <NavigationMenuItem className="" key={idx}>
                 <NavigationMenuTrigger className="bg-tranparent">{item.title}</NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
@@ -45,7 +46,7 @@ export function NavigationMenuDemo() {
                       </NavigationMenuLink>
                     </li>
                     {item.sublinks.map((item, idx) => (
-                      <ListItem href={item.link} title={item.title} className="">
+                      <ListItem href={item.link} title={item.title} className="" key={idx}>
                         Re-usable components built using Radix UI and Tailwind
                         CSS.
                       </ListItem>
@@ -56,7 +57,7 @@ export function NavigationMenuDemo() {
             );
           } else {
             return (
-              <NavigationMenuItem className=" ">
+              <NavigationMenuItem className=" p-0" key={idx}>
                 <Link
                   href={`${item.link}`}
                   legacyBehavior
@@ -64,7 +65,7 @@ export function NavigationMenuDemo() {
                   className=""
                 >
                   <NavigationMenuLink
-                    className={`${navigationMenuTriggerStyle()} bg-transparent`}
+                    className={`${navigationMenuTriggerStyle()} bg-transparent rounded-none w-full h-full`}
                   >
                     {item.title}
                   </NavigationMenuLink>
@@ -73,6 +74,7 @@ export function NavigationMenuDemo() {
             );
           }
         })}
+        <Button className="bg-transparent border-2 border-primary px-10 py-7 rounded-none">Get an estimate</Button>
       </NavigationMenuList>
     </NavigationMenu>
   );

@@ -1,18 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { DedicatedSolutionData } from "@/constants/contants";
 import Link from "next/link";
 import Image from "next/image";
 import CustomButton from "@/utils/CustomButton";
-import Swiper from 'swiper';
-import { Navigation, Pagination } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
 
 const DedicatedSolutions = () => {
   return (
-    <div className=" relative flex flex-col px-20 py-24">
+    <div className=" relative flex flex-col md:px-20 px-5 py-24">
       <h3 className="font-regular  text-center md:text-4xl text-white">
         dedicated solutions
       </h3>
@@ -41,76 +41,47 @@ const DedicatedSolutions = () => {
         </div>
         {/* carosel  */}
         <div className="flex-1">
-        <div class="container">
-      {/* <!-- Side infos --> */}
-      <div class="side-info">
-        <span>discover</span>
-        <h1>Modern Cars</h1>
-        <hr />
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt
-          omnis quis nesciunt.
-        </p>
-        <a href="#">Browse More</a>
-      </div>
-      {/* <!-- Swiper slider --> */}
-      <div class="swiper">
-        <div class="swiper-wrapper">
-          {/* <!-- Content 1 --> */}
-          <div class="swiper-slide slide-one">
-            <div>
-              <h2>Car 01</h2>
-              <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Earum
-                nemo eveniet delectus obcaecati dolorem at, cumque deleniti sint
-                laborum adipisci quis aut consequuntur eum?
-              </p>
-              <a href="#">View Detail</a>
-            </div>
-          </div>
-          {/* <!-- Content 2 --> */}
-          <div class="swiper-slide slide-two">
-            <div>
-              <h2>Car 02</h2>
-              <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Earum
-                nemo eveniet delectus obcaecati dolorem at, cumque deleniti sint
-                laborum adipisci quis aut consequuntur eum?
-              </p>
-              <a href="#">View Detail</a>
-            </div>
-          </div>
-          {/* <!-- Content 3 --> */}
-          <div class="swiper-slide slide-three">
-            <div>
-              <h2>Car 03</h2>
-              <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Earum
-                nemo eveniet delectus obcaecati dolorem at, cumque deleniti sint
-                laborum adipisci quis aut consequuntur eum?
-              </p>
-              <a href="#">View Detail</a>
-            </div>
-          </div>
-          {/* <!-- Content 4 --> */}
-          <div class="swiper-slide slide-four">
-            <div>
-              <h2>Car 04</h2>
-              <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Earum
-                nemo eveniet delectus obcaecati dolorem at, cumque deleniti sint
-                laborum adipisci quis aut consequuntur eum?
-              </p>
-              <a href="#">View Detail</a>
-            </div>
-          </div>
+          <Carousel
+            plugins={[
+              Autoplay({
+                delay: 2000,
+                stopOnInteraction: false,
+              }),
+            ]}
+          >
+            <CarouselContent>
+              <CarouselItem>
+                {" "}
+                <Image
+                  src={"/images/aboutus.png"}
+                  width={300}
+                  height={250}
+                  className="w-auto h-full"
+                />
+              </CarouselItem>
+
+              <CarouselItem>
+                {" "}
+                <Image
+                  src={"/images/ourwork.png"}
+                  width={300}
+                  height={250}
+                  className="w-auto h-full"
+                />
+              </CarouselItem>
+              <CarouselItem>
+                {" "}
+                <Image
+                  src={"/images/aboutus.png"}
+                  width={300}
+                  height={250}
+                  className="w-auto h-full"
+                />
+              </CarouselItem>
+            </CarouselContent>
+          </Carousel>
         </div>
-        {/* <!-- Add Pagination --> */}
-        <div class="swiper-pagination"></div>
       </div>
-    </div>
-</div>
-        </div>
       <div className="mx-auto text-center">
         <p className="">You have ideas. We have software solutions.</p>
         <h4>Time to join forces.</h4>

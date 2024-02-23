@@ -4,7 +4,7 @@ import React from "react";
 
 const Services = () => {
   return (
-    <div className="flex items-center top-20 min-h-screen flex-col relative md:px-10 px-5 text-center font-pontiac">
+    <div className="flex items-center top-20 max-lg:min-h-screen flex-col relative md:px-10 px-5 text-center font-pontiac">
       <span className="triangle"></span>
       <p>Our Services</p>
       {/* <div className="relative top-11 w-full">
@@ -30,7 +30,7 @@ const Services = () => {
         ))}
       </div>
 
-      <p className="text-center text-sm mt-40 text-gray-300 max-w-[500px]">
+      <p className="text-center text-sm mt-40 mb-10 text-gray-300 max-w-[500px]">
         Take full advantage of tech solutions!
         <br /> Launch innovative digital products faster. <br />
         Rethink your IT strategy by embracing disruptive user-centric design &

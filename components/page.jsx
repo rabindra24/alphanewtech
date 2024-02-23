@@ -31,9 +31,11 @@ const Stairs = ({ children }) => {
         <div className="transition-container">
           {nbOfColumns.map((item, i) => {
             return (
-              <motion.div {...anim(expand)} key={i} className="text-white">
-                d
-              </motion.div>
+              <motion.div
+                {...anim(expand)}
+                key={i}
+                className="text-white"
+              ></motion.div>
             );
           })}
         </div>

@@ -62,6 +62,13 @@ body {
   background-image: url(../public/images/noise.png);
 }
 
+/* /////////////////*/
+
+.cardHover:hover {
+  z-index: 1;
+  box-shadow: 0 0 59px rgba(255,78,0,0.19);
+}
+
 .triangle {
   width: 0;
   height: 0;
@@ -110,6 +117,9 @@ body {
 .headerImage {
   background-image: url("https://cdn.merixstudio.com/media/contact/header_images/2019/07/18/15/25/Contact_Header_2993_1.jpg");
   background-position: 30% 30%;
+  background-size: cover;
+  background-repeat: no-repeat;
+
 }
 
 .headerImage::before{
@@ -304,197 +314,171 @@ body {
 
 /* ////////////////////////////////////////////////////////////////// */
 
-/* Project Name: Landing Page Using SwiperJS
-Youtube: https://youtube.com/@devRasen
-Copyright: ©MdRasen */
-
-/* Google Font */
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&family=Roboto:wght@300;400;500;900&display=swap");
-
-/* General CSS */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Open Sans", sans-serif;
+.navigation__checkbox {
+  display: none;
 }
-
-/* Custom CSS */
-.container {
-  width: 100%;
-  min-height: 100vh;
-  column-gap: 40px;
-  padding: 60px 6%;
-}
-
-.container .side-info {
-  margin: 20px 0;
-}
-
-.container .side-info span {
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  font-size: 16px;
-  color: #717171;
-}
-
-.container .side-info h1 {
-  text-transform: capitalize;
-  letter-spacing: 0.8px;
-  font-family: "Roboto", sans-serif;
-  font-weight: 900;
-  font-size: 56px;
-  background-color: #005baa;
-  background-image: linear-gradient(45deg, #005baa, #000000);
-  background-size: 100%;
-  background-repeat: repeat;
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-background-clip: text;
-  -moz-text-fill-color: transparent;
-}
-
-.container .side-info hr {
-  display: block;
-  background: #005baa;
-  height: 4px;
-  width: 20%;
-  margin: 18px 0;
-}
-
-.container a {
-  display: inline-block;
-  text-decoration: none;
-  text-transform: uppercase;
-  color: #717171;
-  font-weight: 500;
-  background: #fff;
-  border-radius: 50px;
-  border: 2px solid #c2c2c2;
-  padding: 8px 16px;
-  margin-top: 20px;
-  transition: 0.3s ease-in-out;
-}
-
-.container a:hover {
-  border: 2px solid #005baa;
-  color: #005baa;
-}
-
-.container .swiper {
-  width: 100%;
-}
-
-.swiper-pagination-bullet,
-.swiper-pagination-bullet-active {
-  background: #fff;
-}
-
-.swiper-pagination {
-  bottom: 20px !important;
-}
-
-.swiper-slide {
-  width: 300px;
-  height: 450px;
-  display: flex;
-  flex-direction: column;
-  justify-content: end;
-  align-items: self-start;
-}
-
-.swiper-slide h2 {
-  color: #fff;
-  font-family: "Roboto", sans-serif;
-  font-weight: 400;
-  font-size: 22px;
-  line-height: 1.4;
-  margin-bottom: 10px;
-  padding: 0 0 0 24px;
-  text-transform: uppercase;
-}
-
-.swiper-slide p {
-  color: #dadada;
-  font-family: "Roboto", sans-serif;
-  font-weight: 300;
-  padding: 0 24px;
-  font-size: 12px;
-  display: -webkit-box;
-  -webkit-line-clamp: 4;
-  -webkit-box-orient: vertical;
+.navigation__button {
+  background-color: #fff;
+  height: 3rem;
+  width: 3rem;
+  position: fixed;
+  top: 2rem;
+  right: 3rem;
+  border-radius: 50%;
+  z-index: 2000;
+  -webkit-box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.1);
+  text-align: center;
+  cursor: pointer;
   overflow: hidden;
 }
-
-.swiper-slide a {
-  margin: 20px 25px 50px !important;
-  padding: 8px 16px !important;
-  font-size: 14px;
-  border: none;
+@media only screen and (max-width: 56.25em) {
+  .navigation__button {
+    top: 3rem;
+    right: 3rem;
+  }
 }
-
-.swiper-slide a:hover {
-  border: none;
+@media only screen and (max-width: 37.5em) {
+  .navigation__button {
+    top: 1rem;
+    right: 1rem;
+  }
 }
-
-.swiper-slide div {
-  display: none;
+.navigation__background {
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
+  position: fixed;
+  top: 2rem;
+  right: 3rem;
+  background-image: radial-gradient(#FF4E00, #f1743f);
+  /* -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(20px); */
+  z-index: 1000;
+  border: 3px solid white;
+  -webkit-transition: -webkit-transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
+  transition: -webkit-transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
+  transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
+  transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1),-webkit-transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
+}
+@media only screen and (max-width: 56.25em) {
+  .navigation__background {
+    top: 3rem;
+    right: 3rem;
+  }
+}
+@media only screen and (max-width: 37.5em) {
+  .navigation__background {
+    top: 1rem;
+    right: 1rem;
+  }
+}
+.navigation__nav {
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: -100%;
+  z-index: 1500;
   opacity: 0;
-  padding-bottom: 10px;
+  width: 0;
+  -webkit-transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
-
-.swiper-slide-active div {
-  display: block;
+.navigation__list {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  list-style: none;
+  text-align: center;
+  width: 100%;
+}
+.navigation__item {
+  margin: 1rem;
+}
+.navigation__link:link,
+.navigation__link:visited {
+  display: inline-block;
+  font-size: 3rem;
+  font-weight: 300;
+  padding: 1rem 2rem;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  background-image: linear-gradient(
+    120deg,
+    transparent 0%,
+    transparent 50%,
+    #fff 50%
+  );
+  background-size: 220%;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+}
+.navigation__link:link span,
+.navigation__link:visited span {
+  margin-right: 1.5rem;
+  display: inline-block;
+}
+.navigation__link:hover,
+.navigation__link:active {
+  background-position: 100%;
+  color: #55c57a;
+  -webkit-transform: translateX(1rem);
+  transform: translateX(1rem);
+}
+.navigation__checkbox:checked ~ .navigation__background {
+  -webkit-transform: scale(80);
+  transform: scale(80);
+}
+.navigation__checkbox:checked ~ .navigation__nav {
   opacity: 1;
+  left: 0;
+  width: 100%;
 }
-
-.slide-one {
-  background: linear-gradient(to top, #0f2027, #203a4300, #2c536400),
-    url(https://github.com/MdRasen/Landing-Page-Using-SwiperJS/blob/main/Landing%20Page%20Using%20SwiperJS/assets/car1.jpg?raw=true) no-repeat 50% 50% / cover;
+.navigation__icon {
+  position: relative;
+  margin-top: 1.5rem;  /* Navigation icon position */
 }
-
-.slide-two {
-  background: linear-gradient(to top, #0f2027, #203a4300, #2c536400),
-    url(https://github.com/MdRasen/Landing-Page-Using-SwiperJS/blob/main/Landing%20Page%20Using%20SwiperJS/assets/car2.jpg?raw=true) no-repeat 50% 50% / cover;
+.navigation__icon,
+.navigation__icon::before,
+.navigation__icon::after {
+  width: 1.5rem;
+  height: 2px;
+  background-color: #333;
+  display: inline-block;
 }
-
-.slide-three {
-  background: linear-gradient(to top, #0f2027, #203a4300, #2c536400),
-    url(https://github.com/MdRasen/Landing-Page-Using-SwiperJS/blob/main/Landing%20Page%20Using%20SwiperJS/assets/car3.jpg?raw=true) no-repeat 50% 50% / cover;
+.navigation__icon::before,
+.navigation__icon::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
 }
-
-.slide-four {
-  background: linear-gradient(to top, #0f2027, #203a4300, #2c536400),
-    url(https://github.com/MdRasen/Landing-Page-Using-SwiperJS/blob/main/Landing%20Page%20Using%20SwiperJS/assets/car4.jpg?raw=true) no-repeat 50% 50% / cover;
+.navigation__icon::before {
+  top: -0.5rem;
 }
-
-/* Responsive Design */
-@media (min-width: 800px) {
-  .container {
-    display: flex;
-    align-items: center;
-  }
-
-  .container .side-info {
-    margin-bottom: 20px;
-  }
+.navigation__icon::after {
+  top: 0.5rem;
 }
-
-@media (max-width: 500px) {
-  .container .side-info h1 {
-    font-size: 46px;
-  }
-
-  .container .side-info p {
-    font-size: 14px;
-  }
+.navigation__button:hover .navigation__icon::before {
+  top: -0.5rem;
 }
-
-
-
-
-
-
-
-
+.navigation__button:hover .navigation__icon::after {
+  top: 0.5rem;
+}
+.navigation__checkbox:checked + .navigation__button .navigation__icon {
+  background-color: transparent;
+}
+.navigation__checkbox:checked + .navigation__button .navigation__icon::before {
+  top: 0;
+  -webkit-transform: rotate(135deg);
+  transform: rotate(135deg);
+}
+.navigation__checkbox:checked + .navigation__button .navigation__icon::after {
+  top: 0;
+  -webkit-transform: rotate(-135deg);
+  transform: rotate(-135deg);
+}

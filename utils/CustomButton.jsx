@@ -2,13 +2,13 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import React from "react";
 
-const CustomButton = ({ title , designs}) => {
+const CustomButton = ({ title , className}) => {
   return (
-    <div className="relative p-2 top-0 left-0 md:w-[300px] mt-5">
+    <div className="relative p-2 top-0  md:w-[300px] mt-5">
       <Button
-        className={`${designs} bg-transparent hover:bg-orange-600 hover:bg-opacity-15 rounded-none  outline-none border-none w-full`}
+        className={`${className} bg-transparent hover:bg-orange-600 hover:bg-opacity-15 rounded-none  outline-none border-none w-full`}
       >
-        Submit
+        {title ? title : 'Submit'}
         <Image
           src={"/images/button.svg"}
           className="w-full h-full rotate-180 absolute  top-0"

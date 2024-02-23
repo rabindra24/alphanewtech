@@ -1,5 +1,3 @@
-import { InstagramIcon } from "lucide-react";
-
 export const navElements = [
   {
     title: "Why Alpharig",
@@ -108,17 +106,17 @@ export const FooterLinks = [
         title: "PL: Małachowskiego 10, 61-129 Poznań",
       },
     ],
-    social : [
+    social: [
       {
-        link : 'Instagram'
+        link: "Instagram",
       },
       {
-        link : 'Instagram'
+        link: "Instagram",
       },
       {
-        link : 'Instagram'
+        link: "Instagram",
       },
-    ]
+    ],
   },
   {
     title: "Explore more",
@@ -185,27 +183,114 @@ export const FooterLinks = [
   },
 ];
 
+export const MoreContactLink = [
+  {
+    image: "/images/user1.png",
+    role: "Project inquires",
+    slogan: "Looking for a tech partner? Let&aspos;s talk",
+    email: "email@gmail.com",
+    number: "76919199",
+  },
+  {
+    image: "/images/user2.png",
+    role: "Project inquires",
+    slogan: "Looking for a tech partner? Let&aspos;s talk",
+    email: "email@gmail.com",
+    number: "76919199",
+  },
+  {
+    image: "/images/user1.png",
+    role: "Project inquires",
+    slogan: "Looking for a tech partner? Let&aspos;s talk",
+    email: "email@gmail.com",
+    number: "76919199",
+  },
+];
 
-export const MoreContactLink  = [
+export const careerContent = [
   {
-    image : '/images/user1.png',
-    role : 'Project inquires',
-    slogan : 'Looking for a tech partner? Let&aspos;s talk',
-    email : 'email@gmail.com',
-    number : '76919199'
+    title: "self-development",
+    content:
+      "Want to keen on growing? Our mentors, internal workshops, and training budget will help you boost your skills.",
   },
   {
-    image : '/images/user2.png',
-    role : 'Project inquires',
-    slogan : 'Looking for a tech partner? Let&aspos;s talk',
-    email : 'email@gmail.com',
-    number : '76919199'
+    title: "work-life balance",
+    content:
+      "More is not always better. We believe that relaxed, fulfilled people are more satisfied at work.",
   },
   {
-    image : '/images/user1.png',
-    role : 'Project inquires',
-    slogan : 'Looking for a tech partner? Let&aspos;s talk',
-    email : 'email@gmail.com',
-    number : '76919199'
-  }
-]
+    title: "teamwork",
+    content:
+      "Team spirit is a huge deal for us. When it comes to giving a helping hand, we are always locked and loaded.",
+  },
+];
+
+export const ServicesLinks = [
+  {
+    title: "Android Development",
+    content:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, molestia",
+    tags: [{ title: "Nextjs" }, { title: "news" }, { title: "news" }],
+  },
+  {
+    title: "Android Development",
+    content:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, molestia",
+    tags: [{ title: "news" }, { title: "Nextjs" }, { title: "news" }],
+  },
+  {
+    title: "Android Development",
+    content:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, molestia",
+    tags: [{ title: "Nextjs" }, { title: "news" }, { title: "news" }],
+  },
+  {
+    title: "Android Development",
+    content:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, molestia",
+    tags: [{ title: "news" }, { title: "news" }, { title: "Nextjs" }],
+  },
+];
+
+export const ServiceCardLinks = [
+  {
+    title: "Android Development",
+    content: "Web app development",
+    list: [
+      { title: "Tech stack recommendation" },
+      { title: "Software Audit" },
+      { title: "Product scale up" },
+      { title: "Digital transformation" },
+    ],
+  },
+  {
+    title: "Mobile app development",
+    content: "Web app development",
+    list: [
+      { title: "Tech stack recommendation" },
+      { title: "Software Audit" },
+      { title: "Product scale up" },
+      { title: "Digital transformation" },
+    ],
+  },
+  {
+    title: "Product design",
+    content: "Web app development",
+    list: [
+      { title: "Tech stack recommendation" },
+      { title: "Software Audit" },
+      { title: "Product scale up" },
+      { title: "Digital transformation" },
+    ],
+  },
+  {
+    title: "Software development consulting",
+    content: "Web app development",
+    list: [
+      { title: "Tech stack recommendation" },
+      { title: "Software Audit" },
+      { title: "Product scale up" },
+      { title: "Digital transformation" },
+    ],
+  },
+];
